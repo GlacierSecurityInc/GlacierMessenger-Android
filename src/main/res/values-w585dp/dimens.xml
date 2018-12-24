@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="avatar_on_details_screen_size">96dp</dimen>
+</resources>

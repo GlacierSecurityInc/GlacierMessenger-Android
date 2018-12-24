@@ -1,0 +1,5 @@
+rootProject.name = 'glacierMessenger'
+// include ':LolliPin'
+// include ':app', ':lib'
+// project(':app').projectDir = new File('LolliPin/app')
+// project(':lib').projectDir = new File('LolliPin/lib')

@@ -1,0 +1,217 @@
+// Top-level build file where you can add configuration options common to all
+// sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+allprojects {
+    repositories {
+        maven{
+            url "https://github.com/omadahealth/omada-nexus/raw/master/release"
+        }
+        jcenter()
+
+    }
+}
+
+configurations {
+    playstoreImplementation
+    compatImplementation
+    freeCompatImplementation
+}
+
+ext {
+    supportLibVersion = '27.1.1'
+}
+
+dependencies {
+    playstoreImplementation('com.google.firebase:firebase-messaging:15.0.2') {
+        exclude group: 'com.google.firebase', module: 'firebase-core'
+    }
+    //implementation project('lib')
+    implementation 'org.sufficientlysecure:openpgp-api:10.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    implementation "com.android.support:support-v13:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:cardview-v7:$supportLibVersion"
+    compatImplementation "com.android.support:support-emoji-appcompat:$supportLibVersion"
+    implementation "com.android.support:support-emoji:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
+    freeCompatImplementation "com.android.support:support-emoji-bundled:$supportLibVersion"
+    implementation 'org.bouncycastle:bcmail-jdk15on:1.58'
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'de.measite.minidns:minidns-hla:0.2.4'
+    implementation 'me.leolin:ShortcutBadger:1.1.21@aar'
+    implementation 'org.whispersystems:signal-protocol-java:2.6.2'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.wefika:flowlayout:0.4.1'
+    implementation 'net.ypresto.androidtranscoder:android-transcoder:0.2.0'
+    implementation 'rocks.xmpp:xmpp-addr:0.8.0-SNAPSHOT'
+    implementation 'org.osmdroid:osmdroid-android:6.0.1'
+
+    implementation 'uk.me.lewisdeane.ldialogs:ldialogs:1.2.0@aar'
+
+    //RippleView
+    implementation 'com.github.traex.rippleeffect:ripple:1.3.1-OG'
+    //TypefaceView
+    implementation 'com.github.omadahealth.typefaceview:typefaceview:1.3.0@aar'
+    //Compat
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.android.support:support-v4:26.+'
+    implementation 'com.android.support:appcompat-v7:26.+'
+
+    // PIN
+    //RippleView
+    implementation 'com.github.traex.rippleeffect:ripple:1.3.1-OG'
+    //TypefaceView
+    implementation 'com.github.omadahealth.typefaceview:typefaceview:1.5.0@aar'
+
+    // COGNITO - S3
+    //implementation 'com.amazonaws:aws-android-sdk-core:2.7.+'
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.7.+'
+
+    // COGNITO - Demo
+    implementation 'com.android.support:appcompat-v7:26.0.0'
+    implementation 'com.android.support:design:26.0.0'
+    implementation 'com.android.support:cardview-v7:26.0.0'
+    implementation 'com.android.support:recyclerview-v7:26.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.0-beta3'
+    implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.8'
+
+    // COGNITO - GlacierMessenger
+    // implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.8'
+    // implementation ('com.amazonaws:aws-android-sdk-mobile-client:2.6.7@aar') { transitive = true; }
+    // implementation 'com.amazonaws:aws-android-sdk-s3:2.6.+'
+}
+
+ext {
+    travisBuild = System.getenv("TRAVIS") == "true"
+    preDexEnabled = System.getProperty("pre-dex", "true")
+}
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 281
+        versionName "2.2.8"
+        archivesBaseName += "-$versionName"
+        applicationId "com.glaciersecurity.glaciermessenger"
+        resValue "string", "applicationId", "com.glaciersecurity.glaciermessenger"
+        resValue "string", "app_name", "Messenger"
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    dexOptions {
+        // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
+        preDexLibraries = preDexEnabled && !travisBuild
+        jumboMode true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    flavorDimensions("distribution", "emoji")
+
+    productFlavors {
+        playstore {
+            dimension "distribution"
+            versionNameSuffix "+p"
+        }
+        free {
+            dimension "distribution"
+            versionNameSuffix "+f"
+        }
+        system {
+            dimension "emoji"
+            versionNameSuffix "s"
+        }
+        compat {
+            dimension "emoji"
+            versionNameSuffix "c"
+        }
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            versionNameSuffix "r"
+        }
+        debug {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            versionNameSuffix "d"
+        }
+    }
+
+
+
+    if(new File("signing.properties").exists()) {
+        Properties props = new Properties()
+        props.load(new FileInputStream(file("signing.properties")))
+
+        signingConfigs {
+            release {
+                storeFile file(props['keystore'])
+                storePassword props['keystore.password']
+                keyAlias props['keystore.alias']
+                keyPassword props['keystore.password']
+            }
+        }
+        buildTypes.release.signingConfig = signingConfigs.release
+    }
+
+    lintOptions {
+        disable 'MissingTranslation', 'InvalidPackage', 'MissingQuantity', 'AppCompatResource'
+        // checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    subprojects {
+
+        afterEvaluate {
+            if (getPlugins().hasPlugin('android') ||
+                    getPlugins().hasPlugin('android-library')) {
+
+                configure(android.lintOptions) {
+                    disable 'AndroidGradlePluginVersion', 'MissingTranslation'
+                }
+            }
+
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/BCKEY.DSA'
+        exclude 'META-INF/BCKEY.SF'
+    }
+}
