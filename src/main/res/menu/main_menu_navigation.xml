@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/Chats"
+            android:icon="@drawable/ic_chat_white_24dp"
+            android:title="Chats" />
+        <item
+            android:id="@+id/Contacts"
+            android:icon="@drawable/ic_contacts"
+            android:title="Contacts" />
+        <item
+            android:id="@+id/Search"
+            android:icon="@drawable/ic_search_white_24dp"
+            android:title="Search" />
+        <!--<item-->
+            <!--android:id="@+id/Dial"-->
+            <!--android:icon="@drawable/dialer_back"-->
+            <!--android:title="Dialer" />-->
+        <item
+            android:id="@+id/File_safe"
+            android:icon="@drawable/ic_lock_white_18dp"
+            android:title="FileSafe" />
+        <item
+            android:id="@+id/Core"
+            android:icon="@drawable/ic_core_key_white_24dp"
+            android:title="Core Connection" />
+        <item
+            android:id="@+id/VoiceApp"
+            android:icon="@drawable/dialer_back"
+            android:title="Glacier Dial"/>
+        <item
+            android:id="@+id/Settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/Support"
+            android:icon="@drawable/ic_help"
+            android:title="Support"/>
+        <!--<item-->
+            <!--android:id="@+id/Lock"-->
+            <!--android:icon="@drawable/ic_baseline_screen_lock"-->
+            <!--android:title="Lock" />-->
+        <item
+            android:id="@+id/Logout"
+            android:icon="@drawable/ic_baseline_power"
+            android:title="Logout" />
+    </group>
+</menu>

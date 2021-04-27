@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	  xmlns:app="http://schemas.android.com/apk/res-auto">
+	<item
+		android:id="@+id/action_enable_all"
+		android:title="@string/enable_all_accounts"/>
+	<item
+		android:id="@+id/action_disable_all"
+		android:title="@string/disable_all_accounts"/>
+	<!-- PIN -->
+	<item
+		android:id="@+id/action_enablepin"
+		android:checkable="true"
+		android:checked="false"
+		android:orderInCategory="110"
+		android:showAsAction="never"
+		android:title="@string/action_enablepin" />
+	<item
+		android:id="@+id/action_changepin"
+		android:orderInCategory="120"
+		android:showAsAction="never"
+		android:title="@string/action_changepin" />
+
+</menu>

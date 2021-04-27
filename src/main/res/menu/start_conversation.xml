@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="?attr/icon_search"
+        android:title="@string/search"
+        app:actionLayout="@layout/actionview_search"
+        android:orderInCategory="75"
+        app:showAsAction="collapseActionView|always"/>
+
+    <item
+        android:id="@+id/action_hide_offline"
+        android:checkable="true"
+        android:checked="false"
+        android:orderInCategory="85"
+        android:title="@string/hide_offline"
+        app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,281 @@
+// Top-level build file where you can add configuration options common to all
+// sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.1'
+        classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.0'
+        classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'com.android.support:multidex:1.0.3'
+
+    }
+    ext.kotlin_version = '1.3.61'
+    ext.versions = [
+            'java'               : JavaVersion.VERSION_1_8,
+            'androidGradlePlugin': '3.6.2',
+            'googleServices'     : '3.2.1',
+            'compileSdk'         : 29,
+            'buildTools'         : '28.0.3',
+            'minSdk'             : 16,
+            'targetSdk'          : 29,
+            'supportLibrary'     : '26.1.0',
+            'firebase'           : '10.0.1',
+            'retrofit'           : '2.0.0-beta4',
+            'okhttp'             : '3.6.0',
+            'ion'                : '2.1.8',
+            'videoAndroid'       : '5.6.0',
+            'audioSwitch'        : '0.1.0'
+    ]
+}
+
+plugins {
+    id "nebula.lint" version "16.9.0"
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.amazonaws.appsync'
+apply plugin: 'com.google.gms.google-services'
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+
+}
+
+allprojects {
+    apply plugin :"nebula.lint"
+    gradleLint {
+        rules=['unused-dependency']
+    }
+
+    repositories {
+        google()  // Google's Maven repository
+        jcenter()
+        maven{
+            url "https://github.com/omadahealth/omada-nexus/raw/master/release"
+        }
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                // Do not change the username below.
+                // This should always be `mapbox` (not your username).
+                username = 'mapbox'
+                // Use the secret token you stored in gradle.properties as the password
+                password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
+            }
+        }
+    }
+}
+
+configurations {
+    compatImplementation
+    messengerFreeCompatImplementation
+}
+
+ext {
+    supportLibVersion = '28.0.0'
+}
+
+dependencies {
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    messengerFreeCompatImplementation('com.google.firebase:firebase-messaging:20.1.5') {
+        exclude group: 'com.google.firebase', module: 'firebase-core'
+        exclude group: 'com.google.firebase', module: 'firebase-analytics'
+        exclude group: 'com.google.firebase', module: 'firebase-measurement-connector'
+    }
+
+    implementation('com.theartofdev.edmodo:android-image-cropper:2.7.0') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'exifinterface'
+    }
+
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.exifinterface:exifinterface:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.emoji:emoji:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    compatImplementation 'androidx.emoji:emoji-appcompat:1.0.0'
+    messengerFreeCompatImplementation 'androidx.emoji:emoji-bundled:1.0.0'
+    implementation 'org.bouncycastle:bcmail-jdk15on:1.58'
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'de.measite.minidns:minidns-hla:0.2.4'
+    implementation 'me.leolin:ShortcutBadger:1.1.22@aar'
+    implementation 'org.whispersystems:signal-protocol-java:2.6.2'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.wefika:flowlayout:0.4.1'
+    implementation 'net.ypresto.androidtranscoder:android-transcoder:0.3.0'
+    implementation project(':libs:xmpp-addr')
+    implementation 'org.osmdroid:osmdroid-android:6.0.3'
+    implementation 'org.hsluv:hsluv:0.2'
+    implementation 'org.conscrypt:conscrypt-android:1.3.0'
+    implementation 'me.drakeet.support:toastcompat:1.1.0'
+    implementation 'com.leinardi.android:speed-dial:2.0.1'
+    implementation 'uk.me.lewisdeane.ldialogs:ldialogs:1.2.0@aar'
+
+    //RippleView
+    implementation 'com.github.traex.rippleeffect:ripple:1.3.1-OG'
+
+    //TypefaceView
+    implementation 'com.github.omadahealth.typefaceview:typefaceview:1.5.0@aar'
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.14.2'
+    implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.14.2'
+
+    // materialx third party dependencies
+    implementation 'com.balysv:material-ripple:1.0.2'                  // ripple effect
+    implementation 'com.github.bumptech.glide:glide:3.7.0'             // image loader
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'          // circle image view
+
+
+    // google maps library ------------------------------------------------------------------------
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
+    implementation 'androidx.emoji:emoji:1.0.0'
+
+
+    //Base SDK
+    implementation 'com.amazonaws:aws-android-sdk-core:2.16.3'
+    //AppSync SDK
+    implementation 'com.amazonaws:aws-android-sdk-appsync:3.0.0'
+
+    implementation "com.twilio:video-android:${versions.videoAndroid}"
+    implementation 'com.twilio:audioswitch:0.1.5'
+
+    implementation "com.koushikdutta.ion:ion:${versions.ion}"
+    implementation "com.android.support:appcompat-v7:${versions.supportLibrary}"
+    implementation "com.android.support:preference-v14:${versions.supportLibrary}"
+    implementation "com.android.support:design:${versions.supportLibrary}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+
+    implementation "androidx.security:security-crypto:1.1.0-alpha02"
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android:flexbox:2.0.1'
+}
+
+
+
+
+ext {
+    travisBuild = System.getenv("TRAVIS") == "true"
+    preDexEnabled = System.getProperty("pre-dex", "true")
+}
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 498
+        versionName "3.3.2-RC4"
+        archivesBaseName += "-$versionName"
+        applicationId "com.glaciersecurity.glaciermessenger"
+
+        resValue "string", "applicationId", applicationId
+        resValue "string", "app_name", "Glacier"
+        buildConfigField "String", "LOGTAG", "\"messenger\""
+
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+    }
+    dataBinding {
+        enabled true
+    }
+    dexOptions {
+        // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
+        preDexLibraries = preDexEnabled && !travisBuild
+        jumboMode true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    flavorDimensions("mode", "distribution", "emoji")
+    productFlavors {
+        messenger {
+            dimension "mode"
+        }
+
+        free {
+            dimension "distribution"
+        }
+
+        compat {
+            dimension "emoji"
+        }
+    }
+    sourceSets {
+        messengerFreeCompat {
+            java {
+                srcDir 'src/messenger/java'
+                srcDir 'src/freeCompat/java'
+            }
+            res {
+                srcDir 'src/messenger/res'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    def keystorePropertiesFile = rootProject.file("signing.properties")
+    if (keystorePropertiesFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(keystorePropertiesFile))
+
+        signingConfigs {
+            release {
+                storeFile file(props['storeFile'])
+                storePassword props['storePassword']
+                keyAlias props['keyAlias']
+                keyPassword props['keyPassword']
+            }
+        }
+        buildTypes.release.signingConfig = signingConfigs.release
+    }
+    lintOptions {
+        disable 'ExtraTranslation', 'MissingTranslation', 'InvalidPackage', 'MissingQuantity', 'AppCompatResource'
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    subprojects {
+
+        afterEvaluate {
+            if (getPlugins().hasPlugin('android') ||
+                    getPlugins().hasPlugin('android-library')) {
+
+                configure(android.lintOptions) {
+                    disable 'AndroidGradlePluginVersion', 'MissingTranslation'
+                }
+            }
+
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/BCKEY.DSA'
+        exclude 'META-INF/BCKEY.SF'
+    }
+    buildToolsVersion '28.0.3'
+}

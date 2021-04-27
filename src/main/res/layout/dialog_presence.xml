@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="?attr/dialog_horizontal_padding"
+        android:paddingTop="?attr/dialog_vertical_padding"
+        android:paddingRight="?attr/dialog_horizontal_padding"
+        android:paddingBottom="@dimen/spacing_medium">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioGroup
+                    android:id="@+id/show"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_midlarge">
+
+                    <RadioButton
+                        android:id="@+id/online"
+                        style="@style/Widget.Conversations.RadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/presence_online" />
+
+                    <RadioButton
+                        android:id="@+id/away"
+                        style="@style/Widget.Conversations.RadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/presence_away" />
+
+                    <RadioButton
+                        android:id="@+id/dnd"
+                        style="@style/Widget.Conversations.RadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/presence_dnd" />
+
+                    <RadioButton
+                        android:id="@+id/xa"
+                        style="@style/Widget.Conversations.RadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/presence_xa" />
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="?android:attr/listDivider"
+                    android:layout_marginBottom="@dimen/spacing_midlarge"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/statuses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_medium"
+                        android:layout_marginRight="20dp">
+
+                        <RadioButton
+                            android:id="@+id/in_meeting"
+                            style="@style/Widget.Conversations.RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/in_meeting"/>
+
+                        <RadioButton
+                            android:id="@+id/on_travel"
+                            style="@style/Widget.Conversations.RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/on_travel" />
+
+                        <RadioButton
+                            android:id="@+id/out_sick"
+                            style="@style/Widget.Conversations.RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/out_sick" />
+
+                        <RadioButton
+                            android:id="@+id/vacation"
+                            style="@style/Widget.Conversations.RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vacation" />
+
+                        <RadioButton
+                            android:id="@+id/custom"
+                            style="@style/Widget.Conversations.RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/custom" />
+
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/clear_prefs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_status"
+                        android:textAppearance="@style/TextAppearance.Conversations.Body2b"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorTextAppearance="@style/TextAppearance.Conversations.Design.Error">
+
+                    <android.widget.TextView
+                        android:id="@+id/status_message"
+                        style="@style/Widget.Conversations.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/status_message"
+                        android:imeOptions="actionDone"
+                        android:inputType="textShortMessage" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

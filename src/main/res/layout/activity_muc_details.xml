@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/color_background_primary"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:id="@+id/muc_main_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+                <!-- Group Label -->
+                <LinearLayout
+                    android:id="@+id/my_muc_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/activity_margin_0"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin_half">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GROUP"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="?attr/colorAccent1"
+                        app:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+
+                <!-- Group -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/card_padding_small"
+                    android:paddingLeft="@dimen/card_padding_regular"
+                    android:paddingRight="@dimen/activity_margin_0"
+                    android:layout_marginTop="@dimen/activity_margin_0"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_margin_0">
+
+                    <LinearLayout
+                        android:id="@+id/details_contact_stuff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/layout_shadow_border_square"
+                        android:padding="1dp"
+                        android:orientation="vertical">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/your_photo"
+                            android:layout_width="@dimen/avatar_on_contact_details_screen_size"
+                            android:layout_height="@dimen/avatar_on_contact_details_screen_size"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            app:riv_corner_radius="15dip"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/details_groupbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_margin_20"
+                        android:layout_toRightOf="@+id/details_contact_stuff"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/muc_display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/activity_margin_1"
+                                android:layout_alignParentStart="true"
+                                android:layout_toStartOf="@+id/edit_muc_name_button"
+                                android:orientation="vertical"
+                                android:layout_alignParentLeft="true"
+                                android:layout_toLeftOf="@+id/edit_muc_name_button">
+
+                                <TextView
+                                    android:id="@+id/muc_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="@style/TextAppearance.Conversations.Title"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/muc_editor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_toStartOf="@+id/edit_muc_name_button"
+                                android:orientation="vertical"
+                                android:visibility="gone"
+                                android:layout_alignParentLeft="true"
+                                android:layout_toLeftOf="@+id/edit_muc_name_button">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:errorTextAppearance="@style/TextAppearance.Conversations.Design.Error"
+                                    app:hintTextAppearance="@style/TextAppearance.Conversations.Design.Hint">
+
+                                    <com.glaciersecurity.glaciermessenger.ui.widget.EmojiWrapperEditText
+                                        android:id="@+id/muc_edit_title"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="@string/group_chat_name"
+                                        android:textAppearance="@style/Widget.Conversations.EditText"/>
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/edit_muc_name_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentTop="true"
+                                android:alpha="?attr/icon_alpha"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="@dimen/image_button_padding"
+                                android:src="?attr/icon_edit_body"
+                                android:layout_alignParentRight="true" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_large" />
+
+                <!-- Group Type & Info -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/activity_margin_0"
+                    android:paddingLeft="@dimen/card_padding_regular"
+                    android:paddingRight="@dimen/activity_margin_0"
+                    android:layout_marginTop="@dimen/activity_margin_0"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_margin_0">
+
+                    <LinearLayout
+                        android:id="@+id/details_muc_settings_stuff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/muc_settings"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/muc_conference_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/change_conference_button"
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1"
+                                android:layout_alignParentLeft="true"
+                                android:layout_toLeftOf="@+id/change_conference_button" />
+
+                            <ImageButton
+                                android:id="@+id/change_conference_button"
+                                style="?android:attr/buttonStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:alpha="?attr/icon_alpha"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:paddingTop="@dimen/image_button_padding"
+                                android:paddingLeft="@dimen/image_button_padding"
+                                android:paddingRight="@dimen/image_button_padding"
+                                android:paddingBottom="@dimen/image_button_padding"
+                                android:src="?attr/icon_settings"
+                                android:layout_alignParentRight="true" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TableLayout
+                        android:id="@+id/muc_info_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:shrinkColumns="0"
+                        android:stretchColumns="1"
+                        android:visibility="gone">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:text="@string/server_info_mam"
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+
+                            <TextView
+                                android:id="@+id/muc_info_mam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:paddingStart="4dp"
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1"
+                                android:paddingLeft="4dp" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <TextView
+                        android:id="@+id/jid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="3dp"
+                        android:textAppearance="@style/TextAppearance.Conversations.Caption"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_large" />
+
+                <!-- Active Participants -->
+                <LinearLayout
+                    android:id="@+id/users_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/activity_margin_0"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_margin_0">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ACTIVE PARTICIPANTS"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="?attr/colorAccent1"
+                        app:fontFamily="sans-serif-medium" />
+
+                    <!-- Active Participants -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/no_users_hints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/card_padding_regular"
+                            android:paddingEnd="@dimen/card_padding_regular"
+                            android:paddingStart="@dimen/card_padding_regular"
+                            android:text="@string/no_users_hint_channel"
+                            android:textAppearance="@style/TextAppearance.Conversations.Body2"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/users"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingEnd="@dimen/card_padding_regular"
+                            android:paddingStart="@dimen/card_padding_regular"
+                            android:paddingTop="@dimen/card_padding_regular"
+                            android:paddingBottom="@dimen/activity_margin_0"
+                            android:layout_marginStart="-2dp"
+                            android:layout_marginEnd="-2dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_gravity="end">
+
+                            <Button
+                                android:id="@+id/invite"
+                                style="@style/Widget.Conversations.Button.Borderless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="0dp"
+                                android:paddingTop="@dimen/activity_margin_0"
+                                android:paddingLeft="@dimen/card_padding_regular"
+                                android:paddingRight="@dimen/card_padding_regular"
+                                android:paddingBottom="@dimen/activity_margin_0"
+                                android:text="@string/invite"
+                                android:textColor="?attr/colorAccent5" />
+
+                            <Button
+                                android:id="@+id/show_users"
+                                style="@style/Widget.Conversations.Button.Borderless"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:minWidth="0dp"
+                                android:paddingTop="@dimen/activity_margin_0"
+                                android:paddingLeft="@dimen/card_padding_regular"
+                                android:paddingRight="@dimen/card_padding_regular"
+                                android:paddingBottom="@dimen/activity_margin_0"
+                                android:text="@string/view_users"
+                                android:textColor="?attr/colorAccent5" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_small" />
+
+                <!-- Shared Media -->
+                <LinearLayout
+                    android:id="@+id/media_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/activity_margin_0"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_margin_0">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SHARED MEDIA"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="?attr/colorAccent1"
+                        app:fontFamily="sans-serif-medium" />
+
+                    <!-- Shared Media -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/media"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingEnd="@dimen/card_padding_regular"
+                        android:paddingStart="@dimen/card_padding_regular"
+                        android:paddingTop="@dimen/card_padding_regular"
+                        android:paddingBottom="@dimen/activity_margin_0"
+                        android:layout_marginStart="-2dp"
+                        android:layout_marginEnd="-2dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end">
+
+                        <Button
+                            android:id="@+id/show_media"
+                            style="@style/Widget.Conversations.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="0dp"
+                            android:paddingTop="@dimen/activity_margin_0"
+                            android:paddingLeft="@dimen/card_padding_regular"
+                            android:paddingRight="@dimen/card_padding_regular"
+                            android:paddingBottom="@dimen/activity_margin_0"
+                            android:text="@string/view_media"
+                            android:textColor="?attr/colorAccent5" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_small" />
+
+                <!-- My Settings for this Group -->
+                <LinearLayout
+                    android:id="@+id/settings_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/activity_margin_0"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_margin_0">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MY SETTINGS FOR THIS GROUP"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="?attr/colorAccent1"
+                        app:fontFamily="sans-serif-medium" />
+
+                    <!-- My Group Settings -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/card_padding_small"
+                        android:paddingLeft="@dimen/card_padding_regular"
+                        android:paddingRight="@dimen/activity_margin_0"
+                        android:paddingBottom="@dimen/card_padding_regular">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/muc_your_nick"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:textAppearance="@style/TextAppearance.Conversations.Subhead"/>
+
+                                <TextView
+                                    android:id="@+id/muc_role"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:textAppearance="@style/TextAppearance.Conversations.Body1.Secondary"/>
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/edit_nick_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:alpha="?attr/icon_alpha"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="@dimen/image_button_padding"
+                                android:src="?attr/icon_edit_body"
+                                android:layout_alignParentRight="true" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/notification_status_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/notification_status_button"
+                                android:text="@string/notify_on_all_messages"
+                                android:textAppearance="@style/TextAppearance.Conversations.Body1"
+                                android:layout_alignParentLeft="true"
+                                android:layout_toLeftOf="@+id/notification_status_button" />
+
+                            <ImageButton
+                                android:id="@+id/notification_status_button"
+                                style="?android:attr/buttonStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_horizontal"
+                                android:alpha="?attr/icon_alpha"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="@dimen/image_button_padding"
+                                android:src="?attr/icon_notifications"
+                                android:layout_alignParentRight="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

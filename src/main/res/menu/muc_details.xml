@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_save_as_bookmark"
+        android:orderInCategory="80"
+        app:showAsAction="never"
+        android:title="@string/save_as_bookmark"/>
+    <item
+        android:id="@+id/action_delete_bookmark"
+        android:orderInCategory="80"
+        app:showAsAction="never"
+        android:title="@string/delete_bookmark"/>
+    <item
+        android:id="@+id/action_destroy_room"
+        android:orderInCategory="82"
+        app:showAsAction="never"
+        android:title="@string/destroy_room"/>
+    <item
+        android:id="@+id/action_advanced_mode"
+        android:checkable="true"
+        android:checked="false"
+        android:visible="false"
+        android:orderInCategory="85"
+        app:showAsAction="never"
+        android:title="@string/advanced_mode"/>
+</menu>

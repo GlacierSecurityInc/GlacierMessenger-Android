@@ -1,0 +1,54 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include android:id="@+id/toolbar_with_icon_status"
+            layout="@layout/toolbar_with_icon_status" />
+
+        <include android:id="@+id/toolbar_in_call"
+            layout="@layout/toolbar_in_call"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/offline_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:background="#27a1cb"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/network_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_refresh_black_24dp"
+                android:drawableStart="@drawable/ic_refresh_black_24dp"
+                android:drawablePadding="8dp"
+                android:textSize="16sp"
+                android:text="@string/disconnect_tap_to_connect"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/main_fragment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1000"/>
+
+            <FrameLayout
+                android:id="@+id/secondary_fragment"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1618"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

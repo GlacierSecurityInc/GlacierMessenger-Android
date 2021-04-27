@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/color_background_secondary"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/calling_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="@dimen/spacing_slarge" />
+
+    <LinearLayout
+        android:id="@+id/calling_middle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/participant_selected_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/color_background_secondary">
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/participant_stub_image"
+                android:layout_width="@dimen/avatar_on_incoming_call_screen_size"
+                android:layout_height="@dimen/avatar_on_incoming_call_screen_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/account_image_description"
+                app:riv_corner_radius="90dip" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/participant_stub_image"-->
+<!--            android:layout_width="107dp"-->
+<!--            android:layout_height="107dp"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:contentDescription="@string/profile_picture"-->
+<!--            app:srcCompat="@drawable/ic_account_circle_white_48px" />-->
+
+
+        <TextView
+            android:id="@+id/participant_selected_identity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/call_state"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp"
+            android:text="Participant Name"
+            android:textColor="?attr/edit_text_color"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/call_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/participant_stub_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:text="@string/incoming_call"
+            android:textColor="?attr/edit_text_color"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:fontFamily="sans-serif-medium"/>
+    </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/controls_grid"
+        android:layout_width="@dimen/calling__controls__max_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginStart="@dimen/spacing_slarge"
+        android:layout_marginEnd="@dimen/spacing_slarge"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_alignParentLeft="true"
+                >
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/local_video_image_button_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:background="@drawable/roundbutton_gray"
+                    app:srcCompat="@drawable/ic_videocam_off_gray_24px" />
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/local_video_image_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:background="@drawable/roundbutton_gray"
+                    app:srcCompat="@drawable/ic_videocam_white_24px"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/video_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/accept_call_button"
+                    android:layout_centerHorizontal="true"
+                    android:text="VIDEO"
+                    android:textColor="@color/lobbyMediaControls"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    app:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/speaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_centerInParent="true"
+                >
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/speaker_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:background="@drawable/roundbutton_gray"
+                    app:srcCompat="@drawable/ic_volume_up_white_24dp"
+                    android:visibility="gone"/>
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/speaker_button_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:background="@drawable/roundbutton_white"
+                    app:srcCompat="@drawable/ic_volume_off_gray_24dp" />
+
+                <TextView
+                    android:id="@+id/speaker_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/reject_call_button"
+                    android:layout_centerHorizontal="true"
+                    android:text="SPEAKER"
+                    android:textColor="?attr/edit_text_color"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    app:fontFamily="sans-serif-medium" />
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_alignParentRight="true"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/audio_image_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@drawable/roundbutton_gray"
+                app:srcCompat="@drawable/ic_mic_gray_24dp" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/audio_image_button_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:background="@drawable/roundbutton_gray"
+                    app:srcCompat="@drawable/ic_mic_off_gray_24dp"
+                    android:visibility="gone"/>
+
+
+                <TextView
+                    android:id="@+id/audio_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/accept_call_button"
+                    android:layout_centerHorizontal="true"
+                    android:text="MUTE"
+                    android:textColor="@color/lobbyMediaControls"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    app:fontFamily="sans-serif-medium"  />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/call_status_incoming"
+        android:layout_width="@dimen/calling__controls__max_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/spacing_xlarge"
+        android:layout_marginStart="@dimen/spacing_slarge"
+        android:layout_marginEnd="@dimen/spacing_slarge"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/reject_call_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:background="@drawable/roundbutton"
+                    app:backgroundTint="@color/lobbyHangup"
+                    app:srcCompat="@drawable/ic_call_end_white_24px"
+                    android:layout_alignParentLeft="true"/>
+
+     <androidx.appcompat.widget.AppCompatImageButton
+         android:id="@+id/accept_call_button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/fab_margin"
+         android:background="@drawable/roundbutton"
+         app:backgroundTint="@color/light_green_A700"
+         app:srcCompat="@drawable/ic_phone_accept"
+         android:layout_alignParentRight="true"
+         />
+
+
+    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/call_status_outgoing"
+        android:layout_width="@dimen/calling__controls__max_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/spacing_xlarge"
+        android:layout_marginStart="@dimen/spacing_slarge"
+        android:layout_marginEnd="@dimen/spacing_slarge"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/end_call_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:background="@drawable/roundbutton"
+                app:backgroundTint="@color/lobbyHangup"
+                app:srcCompat="@drawable/ic_call_end_white_24px"
+                android:layout_centerInParent="true"/>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

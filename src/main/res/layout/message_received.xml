@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="3dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:id="@+id/message_photo_box"
+        android:orientation="vertical"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/message_photo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="fitXY"
+            app:riv_corner_radius="30dip" />
+
+        <View
+            android:id="@+id/placeholder"
+            android:layout_height="2dp"
+            android:layout_width="48dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/message_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/message_photo_box"
+
+        android:background="@drawable/layout_message_bubbles_rcvd"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="1dp"
+
+        android:paddingTop="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="2dp"
+
+        android:minHeight="53dp"
+        android:longClickable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <include layout="@layout/message_content"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="horizontal"
+                android:paddingTop="1dp"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:id="@+id/message_encryption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginRight="4sp"
+                    android:textAppearance="@style/TextAppearance.Conversations.Caption.OnDark.Bold"/>
+
+                <ImageView
+                    android:id="@+id/edit_indicator"
+                    android:layout_width="?attr/TextSizeCaption"
+                    android:layout_height="?attr/TextSizeCaption"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="4sp"
+                    android:alpha="0.70"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_mode_edit_white_18dp" />
+
+                <TextView
+                    android:id="@+id/message_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:text="@string/sending"
+                    android:textAppearance="@style/TextAppearance.Conversations.Caption"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

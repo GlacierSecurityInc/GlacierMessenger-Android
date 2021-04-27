@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "556768963899",
+    "firebase_url": "https://glacierapp-android.firebaseio.com",
+    "project_id": "glacierapp-android",
+    "storage_bucket": "glacierapp-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556768963899:android:5cf0f0ab73963afdc99b1e",
+        "android_client_info": {
+          "package_name": "com.glaciersecurity.glaciermessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556768963899-15c1o0hmrel8q3htu7pglv6ljq4hs04j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJOZFgKARiC7PQ2oKBQ8vyju5xnHv3Dek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556768963899-15c1o0hmrel8q3htu7pglv6ljq4hs04j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

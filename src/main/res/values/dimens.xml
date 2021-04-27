@@ -1,0 +1,114 @@
+<resources>
+	<!-- Default screen margins, per the Android Design guidelines. -->
+	<dimen name="activity_horizontal_margin">8dp</dimen>
+	<dimen name="activity_vertical_margin">8dp</dimen>
+	<dimen name="activity_vertical_margin_half">4dp</dimen>
+	<dimen name="activity_margin_3">3dp</dimen>
+	<dimen name="activity_margin_2">2dp</dimen>
+	<dimen name="activity_margin_1">1dp</dimen>
+	<dimen name="activity_margin_0">0dp</dimen>
+	<dimen name="activity_margin_20">20dp</dimen>
+
+	<dimen name="card_padding_regular">16dp</dimen>
+	<dimen name="card_padding_small">12dp</dimen>
+	<dimen name="card_padding_list">8dp</dimen> <!-- card_padding_regular minus list_padding -->
+	<dimen name="list_padding">8dp</dimen>
+	<dimen name="image_button_padding">12dp</dimen>
+	<dimen name="key_action_width">48dp</dimen>  <!-- icon width (24dp) + 2 * image button padding -->
+	<dimen name="fineprint_size">11sp</dimen>
+	<dimen name="audio_player_width">224dp</dimen>
+	<dimen name="avatar_item_distance">16dp</dimen>
+
+	<dimen name="status_icon_left_padding">15dp</dimen>
+	<dimen name="status_icon_right_padding">5dp</dimen>
+
+	<dimen name="media_preview_size">80dp</dimen>
+	<dimen name="media_size">56dp</dimen> <!-- ideally not larger than avatar_on_details_screen -->
+	<dimen name="browser_media_size">96dp</dimen>
+	<dimen name="toolbar_elevation">4dp</dimen>
+
+	<dimen name="publish_filesafe_size">48dp</dimen>
+	<dimen name="publish_filesafe_top_margin">4dp</dimen>
+
+	<dimen name="publish_avatar_top_margin">8dp</dimen>
+	<dimen name="publish_avatar_size">96dp</dimen>
+	<dimen name="avatar_on_status_message">32dp</dimen>
+	<dimen name="avatar">48dp</dimen>
+	<dimen name="avatar_on_details_screen_size">56dp</dimen>
+	<dimen name="avatar_on_contact_details_screen_size">56dp</dimen>
+	<dimen name="avatar_on_menu_size">62dp</dimen>
+	<dimen name="avatar_on_conversation_overview">56dp</dimen>
+	<dimen name="avatar_on_incoming_call_screen_size">150dp</dimen>
+	<dimen name="avatar_on_call_screen_size">200dp</dimen>
+	<dimen name="avatar_on_horizontal_call_screen_size">100dp</dimen>
+
+
+	<dimen name="input_label_vertical_spacing">4dp</dimen>
+	<dimen name="input_label_horizontal_spacing">4dp</dimen>
+
+	<!-- scanner -->
+	<dimen name="scan_laser_width">4dp</dimen>
+	<dimen name="scan_dot_size">8dp</dimen>
+
+	<dimen name="swipe_escape_velocity">1200dp</dimen> <!-- android default is 120dp -->
+
+	<dimen name="background_image_opacity">0.30</dimen>
+	<dimen name="sd_label_max_width">256dp</dimen>
+
+	<dimen name="activity_dialog_title_size">9sp</dimen>
+	<dimen name="activity_dialog_content_size">5sp</dimen>
+	<dimen name="activity_dialog_positive_button_size">6sp</dimen>
+	<dimen name="activity_dialog_negative_button_size">6sp</dimen>
+
+	<!-- PIN -->
+	<dimen name="keyboard_button_text_size">30sp</dimen>
+	<dimen name="keyboard_button_padding">15dp</dimen>
+	<dimen name="keyboard_button_ripple_padding">30dp</dimen>
+	<dimen name="pin_code_round_size">25dp</dimen>
+	<dimen name="pin_code_round_margin">10dp</dimen>
+	<dimen name="light_gray_bar_margin_top">20dp</dimen>
+	<dimen name="light_gray_bar_margin_bottom">5dp</dimen>
+	<dimen name="light_gray_bar_margin_sides">50dp</dimen>
+	<dimen name="pin_code_forgot_text_size">16sp</dimen>
+	<dimen name="pin_code_step_text_size">20sp</dimen>
+	<dimen name="pin_code_elements_margin">20dp</dimen>
+	<dimen name="activity_pin_code_padding">20dp</dimen>
+	<dimen name="pin_code_logo_margin">30dp</dimen>
+	<dimen name="pin_code_round_top_margin">10dp</dimen>
+
+	<!-- MATERIAL X-->
+	<!-- Default screen margins, per the Android Design guidelines. -->
+	<dimen name="actionBarSize">56dp</dimen>
+	<dimen name="nav_header_vertical_spacing">16dp</dimen>
+	<dimen name="nav_header_height">200dp</dimen>
+	<dimen name="fab_margin">16dp</dimen>
+	<dimen name="viewpager_margin_overlap">-60dp</dimen>
+	<dimen name="viewpager_margin_overlap_payment">-30dp</dimen>
+
+	<!--genaral spacing-->
+	<dimen name="spacing_xxsmall">1dp</dimen>
+	<dimen name="spacing_xsmall">2dp</dimen>
+	<dimen name="spacing_small">3dp</dimen>
+	<dimen name="spacing_medium">5dp</dimen>
+	<dimen name="spacing_xmedium">7dp</dimen>
+	<dimen name="spacing_middle">10dp</dimen>
+	<dimen name="spacing_midlarge">12dp</dimen>
+	<dimen name="spacing_midlarge2">13dp</dimen>
+	<dimen name="spacing_large">15dp</dimen>
+	<dimen name="spacing_slarge">16dp</dimen>
+	<dimen name="spacing_smlarge">18dp</dimen>
+	<dimen name="spacing_mlarge">20dp</dimen>
+	<dimen name="spacing_mxlarge">25dp</dimen>
+	<dimen name="spacing_xlarge">35dp</dimen>
+	<dimen name="spacing_xmlarge">40dp</dimen>
+	<dimen name="spacing_xxlarge">50dp</dimen>
+	<dimen name="spacing_xxxlarge">55dp</dimen>
+	<dimen name="appbar_padding_top">8dp</dimen>
+
+	<!-- Calling-->
+	<dimen name="calling__controls__max_width">312dp</dimen>
+	<dimen name="calling__controls__button__dimension">64dp</dimen>
+	<dimen name="calling__controls__button_label__dimension">96dp</dimen>
+	<dimen name="calling__controls__button__label__margin_top">8dp</dimen>
+
+</resources>

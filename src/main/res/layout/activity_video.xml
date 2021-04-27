@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_background_primary"
+    android:fitsSystemWindows="false"
+    tools:context=".ui.VideoActivity">
+
+    <include layout="@layout/content_video" />
+    <RelativeLayout
+        android:id="@+id/call_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/down_arrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:adjustViewBounds="true"
+            android:clickable="false"
+            android:layout_margin="16dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_expand" />
+        <TextView
+            android:id="@+id/primary_video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="?attr/edit_text_color"
+            android:layout_alignParentTop="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:fontFamily="sans-serif-medium"
+            android:layout_toRightOf="@+id/down_arrow"
+            />
+
+
+        <RelativeLayout
+            android:id="@+id/call_action_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="?attr/color_background_secondary"
+            android:layout_alignParentLeft="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_xxlarge"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/switch_camera_action_space"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+                <ImageView
+                    android:id="@+id/switch_camera_action_fab"
+                    android:layout_width="@dimen/spacing_xxlarge"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_large"
+                    app:srcCompat="@drawable/ic_flip_camera"
+                    app:tint="@color/grey_40"
+                    android:visibility="gone"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/local_video_action_fab"
+                    android:layout_width="@dimen/spacing_xxlarge"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_large"
+                    app:tint="@color/grey_40"
+                    app:srcCompat="@drawable/ic_videocam_off_gray_24px"
+                    android:visibility="visible"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+
+                <ImageView
+                    android:id="@+id/speaker_phone_action_fab"
+                    android:layout_width="@dimen/spacing_xxlarge"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_large"
+                    app:tint="@color/grey_40"
+                    app:srcCompat="@drawable/ic_volume_off_gray_24dp"
+                    android:visibility="visible" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/mute_action_fab"
+                    android:layout_width="@dimen/spacing_xxlarge"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_large"
+                    app:srcCompat="@drawable/ic_mic_24dp"
+                    app:tint="@color/grey_40"
+                    android:visibility="visible"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/connect_action_fab"
+                    android:layout_width="@dimen/spacing_xxlarge"
+                    android:layout_height="@dimen/spacing_xxlarge"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:padding="@dimen/spacing_middle"
+                    app:srcCompat="@drawable/ic_call_end_white_24px"
+                    android:visibility="visible"
+                    app:tint="@color/lobbyHangup" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

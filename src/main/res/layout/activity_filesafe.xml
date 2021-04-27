@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/color_background_primary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="?attr/color_background_primary">
+
+            <include android:id="@+id/toolbar"
+                layout="@layout/toolbar"/>
+
+            <LinearLayout
+                android:background="?attr/color_background_primary"
+                android:id="@+id/main_filesafe_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar"
+                android:layout_above="@id/button_bar"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+                <LinearLayout
+                    android:background="?attr/color_background_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/offline_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="4dp"
+                        android:background="#27a1cb"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/network_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:drawableLeft="@drawable/ic_refresh_black_24dp"
+                            android:drawableStart="@drawable/ic_refresh_black_24dp"
+                            android:drawablePadding="8dp"
+                            android:textSize="16sp"
+                            android:text="@string/offline_statusBar"/>
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/filesafe_image_wrapper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="@dimen/publish_filesafe_top_margin">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/filesafe_image"
+                            android:layout_width="@dimen/publish_filesafe_size"
+                            android:layout_height="@dimen/publish_filesafe_size"
+                            android:src="?attr/activity_filesafe"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/upload_filesafe_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upload_filesafe_message"
+                        android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:background="?attr/divider"/>
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            android:id="@+id/upload_filesafe_files"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:paddingRight="15dp"
+                            android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+
+                    </ScrollView>
+
+                    <TextView
+                        android:id="@+id/hint_or_warning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/TextAppearance.Conversations.Body1"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:background="?attr/color_background_button"
+                android:id="@+id/button_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true">
+
+                <Button
+                    android:background="?attr/color_background_button"
+                    android:id="@+id/cancel_button"
+                    style="@style/Widget.Conversations.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="7dp"
+                    android:background="?attr/divider"/>
+
+                <Button
+                    android:background="?attr/color_background_button"
+                    android:id="@+id/upload_button"
+                    style="@style/Widget.Conversations.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="false"
+                    android:text="@string/upload"/>
+            </LinearLayout>
+    </RelativeLayout>
+</layout>

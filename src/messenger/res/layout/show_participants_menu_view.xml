@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center"
+    android:minWidth="48dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:orientation="horizontal"
+    tools:background="@color/secondary_bg_color">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        app:srcCompat="@drawable/ic_group_white_24dp"
+        android:textColor="?attr/edit_text_color"
+        android:layout_marginRight="4dp" />
+
+    <TextView
+        android:id="@+id/show_participants_menu_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/edit_text_color"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:text="0" />
+
+</LinearLayout>
